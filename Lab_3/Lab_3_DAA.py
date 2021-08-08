@@ -6,12 +6,14 @@ import pandas as pd  # to generate a table to store data in
 import psutil  # to measure memory usage and cpu load
 from matplotlib import pyplot as plt  # to generate a graph
 
+file_dir = os.path.join(*os.path.abspath(__file__).split("\\")[2:-1])
+
 """
 importing the numbers from the given file
 """
 
 nums = []  # creating list to store values from the .txt file
-with open('numbers.txt', 'r') as txt:  # opening the file
+with open(os.path.join(file_dir, "numbers.txt"), 'r') as txt:  # opening the file
     for line in txt:  # iterating through each line in the file
         # stripping each line and converting the element in that line to an int, appending that to nums list
         nums.append(int(line.strip()))
